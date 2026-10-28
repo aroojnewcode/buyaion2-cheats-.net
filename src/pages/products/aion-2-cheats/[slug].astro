@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getAllProductSlugs, getProductPage, productHub } from '../../../data/products';
+import { pageTitle } from '../../../config/seo';
+import { breadcrumbSchema, productSchema } from '../../../utils/schema';
+import ProductDetail from '../../../components/ProductDetail.astro';
+import { getTranslations } from '../../../i18n';
+
+export function getStaticPaths() {
+  return getAllProductSlugs().map((slug) => ({ params: { slug } }));
+}
+
+const locale = 'en' as const;
+const t = getTranslations(locale);
+const { slug } = Astro.params;
+const product = getProductPage(slug!);
+
+if (!product) {
+  return Astro.redirect(productHub.path);
+}
+
+const pagePath = `${productHub.path}${product.slug}/`;
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: t.products.eyebrow, path: productHub.path },
+  { name: product.title, path: pagePath },
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={pageTitle(product.title, undefined, locale)}
+  description={product.desc}
+  jsonLd={[
+    productSchema({
+      name: product.title,
+      description: product.desc,
+      url: pagePath,
+      offerUrl: product.buyUrl,
+      image: product.images[0]?.src,
+      sku: product.slug,
+    }),
+    breadcrumbSchema(breadcrumbs),
+  ]}
+>
+  <ProductDetail product={product} breadcrumbs={breadcrumbs} />
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+import type { BlogPost } from '../../i18n/types';
+import SectionHeader from '../SectionHeader.astro';
+import BlogCard from '../BlogCard.astro';
+import { Button } from '@/components/starwind/button';
+import Icon from '../icons/Icon.astro';
+import { ROUTES } from '../../utils/path';
+import { getTranslations, localeFromPathname, localizePath } from '../../i18n';
+
+interface Props {
+  posts: BlogPost[];
+  productName: string;
+}
+
+const { posts, productName } = Astro.props;
+const locale = localeFromPathname(Astro.url.pathname);
+const t = getTranslations(locale);
+const blogHref = localizePath(locale, ROUTES.blog);
+---
+
+{
+  posts.length > 0 && (
+    <section class="border-t border-border bg-muted/20 py-16 md:py-24" aria-labelledby="related-guides-heading">
+      <div class="mx-auto max-w-6xl px-5">
+        <SectionHeader
+          eyebrow={t.blog.eyebrow}
+          title={`${t.blog.read}: ${productName}`}
+          desc={t.blog.subtitle}
+          titleId="related-guides-heading"
+        />
+
+        <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-10">
+          {posts.map((post, i) => (
+            <BlogCard post={post} index={i} showDate />
+          ))}
+        </div>
+
+        <div class="mt-12 flex justify-start lg:justify-center">
+          <Button as="a" href={blogHref} variant="outline" class="rounded-full">
+            {t.blog.viewAll}
+            <Icon name="arrowRight" size={17} />
+          </Button>
+        </div>
+      </div>
+    </section>
+  )
+}

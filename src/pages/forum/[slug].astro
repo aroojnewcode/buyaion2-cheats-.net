@@ -1,0 +1,12 @@
+---
+import ForumPostPage from '../../views/ForumPostPage.astro';
+import { forumPosts } from '../../data/forum';
+
+export function getStaticPaths() {
+  return forumPosts.map((post) => ({ params: { slug: post.slug } }));
+}
+
+const { slug } = Astro.params;
+---
+
+<ForumPostPage slug={slug!} locale="en" />

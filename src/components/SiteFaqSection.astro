@@ -1,0 +1,56 @@
+---
+import type { SiteFaqItem, FaqTopic } from '../data/faq';
+import FaqSection from './FaqSection.astro';
+import {
+  SITE_FAQ_FILTER_TOPICS,
+  SITE_FAQ_SECTION_COPY,
+  CONTEXTUAL_FAQ_SECTION_COPY,
+  faqFilterTopicsForItems,
+} from '../data/faq';
+
+interface Props {
+  items: SiteFaqItem[];
+  id?: string;
+  titleId?: string;
+  class?: string;
+  /** Full /faq/ experience — all topics chip bar */
+  variant?: 'full' | 'contextual';
+  filterTopics?: FaqTopic[];
+  /** Optional i18n overrides for section header copy */
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  showHeader?: boolean;
+}
+
+const {
+  items,
+  id,
+  titleId = 'faq-heading',
+  class: className,
+  variant = 'contextual',
+  filterTopics: filterTopicsProp,
+  eyebrow: eyebrowProp,
+  title: titleProp,
+  subtitle: subtitleProp,
+  showHeader = true,
+} = Astro.props;
+
+const copy = variant === 'full' ? SITE_FAQ_SECTION_COPY : CONTEXTUAL_FAQ_SECTION_COPY;
+const filterTopics =
+  filterTopicsProp ?? (variant === 'full' ? SITE_FAQ_FILTER_TOPICS : faqFilterTopicsForItems(items));
+const showFilters = filterTopics.length > 1;
+---
+
+<FaqSection
+  id={id}
+  items={items}
+  eyebrow={eyebrowProp ?? copy.eyebrow}
+  title={titleProp ?? copy.title}
+  subtitle={subtitleProp ?? copy.subtitle}
+  titleId={titleId}
+  showFilters={showFilters}
+  filterTopics={filterTopics}
+  class={className}
+  showHeader={showHeader}
+/>

@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+Disallow: /go/
+
+Sitemap: https://buyaion2cheats.net/sitemap.xml
+Sitemap: https://buyaion2cheats.net/sitemap-en.xml
+Sitemap: https://buyaion2cheats.net/sitemap-ko.xml
+Sitemap: https://buyaion2cheats.net/sitemap-zh-tw.xml
+Sitemap: https://buyaion2cheats.net/sitemap-de.xml
+Sitemap: https://buyaion2cheats.net/sitemap-pt-br.xml
+Sitemap: https://buyaion2cheats.net/sitemap-th.xml
+Sitemap: https://buyaion2cheats.net/sitemap-ja.xml
+Sitemap: https://buyaion2cheats.net/sitemap-es.xml
+Sitemap: https://buyaion2cheats.net/sitemap-fr.xml
+Sitemap: https://buyaion2cheats.net/sitemap-pages.xml
+Sitemap: https://buyaion2cheats.net/sitemap-products.xml
+Sitemap: https://buyaion2cheats.net/sitemap-blog.xml
+Sitemap: https://buyaion2cheats.net/sitemap-forum.xml
+
+# RSS: https://buyaion2cheats.net/rss.xml
