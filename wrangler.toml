@@ -1,6 +1,9 @@
 # Static Astro site — do not auto-add @astrojs/cloudflare (keeps output in dist/).
-name = "aion2cheats-net"
+name = "buyaion2cheats-net"
 compatibility_date = "2025-10-11"
+
+# Cloudflare Pages (Git) reads build output from here when wrangler.toml is present.
+pages_build_output_dir = "./dist"
 
 [assets]
 directory = "./dist"

@@ -166,7 +166,7 @@ const galleryRaw = {
     captionDesc: 'Group fight with combat log and skill bar visible.',
   },
   gpHeroHome: {
-    src: `${gameplay}/aion-2-combat-plateau.png`,
+    src: `${gameplay}/aion-2-hero-esp-battlefield.png`,
     alt: 'Aion 2 ESP on a dark rocky battlefield with red enemy boxes, boss health bar and full combat HUD during open-world PvP',
     caption: 'ESP battlefield',
     captionDesc: 'Red target boxes and combat UI on a plateau fight.',

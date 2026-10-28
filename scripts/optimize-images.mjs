@@ -17,6 +17,10 @@ async function optimizeDir(relativeDir) {
 
   for (const file of files) {
     const input = path.join(dir, file);
+    if (fs.statSync(input).size === 0) {
+      console.warn(`Skipping empty PNG: ${path.relative(root, input)}`);
+      continue;
+    }
     const base = file.replace(/\.png$/i, '');
 
     for (const width of widths) {
