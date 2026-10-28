@@ -16,6 +16,8 @@ Then in Cloudflare Dashboard → **Workers & Pages** → **buyaion2cheats-net** 
 
 **Cloudflare Pages (GitHub):**
 
+Do **not** add `@tailwindcss/oxide-win32-x64-msvc` (or any OS-specific `@tailwindcss/oxide-*`) to `package.json` — Linux CI fails with `EBADPLATFORM`. If install still fails after pulling latest `main`, **Clear build cache** in Cloudflare → Settings → Build, then redeploy.
+
 | Setting | Value |
 |--------|--------|
 | Build command | `npm run build` |

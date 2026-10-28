@@ -1,13 +1,14 @@
 {
   "name": "site",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "node": ">=22.12.0"
   },
   "scripts": {
+    "preinstall": "node scripts/verify-no-platform-deps.mjs",
     "dev": "astro dev",
-    "build": "node scripts/optimize-images.mjs && astro build && node scripts/prune-dist-images.mjs && node scripts/finalize-sitemap.mjs && node scripts/verify-dist-assets.mjs && node scripts/indexnow.mjs",
+    "build": "node scripts/verify-no-platform-deps.mjs && node scripts/optimize-images.mjs && astro build && node scripts/prune-dist-images.mjs && node scripts/finalize-sitemap.mjs && node scripts/verify-dist-assets.mjs && node scripts/indexnow.mjs",
     "verify:assets": "node scripts/verify-dist-assets.mjs",
     "preview": "astro preview --host 0.0.0.0",
     "start": "node scripts/serve.mjs",
