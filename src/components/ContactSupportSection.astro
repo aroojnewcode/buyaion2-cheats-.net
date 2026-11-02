@@ -1,6 +1,7 @@
 ---
 import '../styles/support-section.css';
 import { getTranslations, localeFromPathname, localizePath } from '../i18n';
+import { resolveCheckoutHref } from '../config/checkout';
 const locale = localeFromPathname(Astro.url.pathname);
 const t = getTranslations(locale);
 import Icon from './icons/Icon.astro';
@@ -53,7 +54,7 @@ const c = t.support;
               <CardFooter>
                 <Button
                   as="a"
-                  href={channel.href}
+                  href={resolveCheckoutHref(channel.href)}
                   variant="outline"
                   size="sm"
                   class="w-full"

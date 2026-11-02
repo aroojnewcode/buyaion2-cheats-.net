@@ -1,11 +1,13 @@
-/** Checkout destinations keyed by internal product id (Levo affiliate). */
-const LEVO_AION2 = 'https://levocheats.com/go/8b9cad82?to=%2Faion-2-cheats';
+/** Zadeyo affiliate checkout — all buy / access CTAs. */
+export const ZADEYO_AION2_CHECKOUT =
+  'https://zadeyo.com/go/8b9cad82?to=%2Fproducts%2Faion-2';
 
+/** Checkout destinations keyed by internal product id (all route to Aion 2 store). */
 export const CHECKOUT_URLS = {
-  aion2: LEVO_AION2,
-  skinChanger: LEVO_AION2,
-  hwidSpoofer: LEVO_AION2,
-  ugc: LEVO_AION2,
+  aion2: ZADEYO_AION2_CHECKOUT,
+  skinChanger: ZADEYO_AION2_CHECKOUT,
+  hwidSpoofer: ZADEYO_AION2_CHECKOUT,
+  ugc: ZADEYO_AION2_CHECKOUT,
 };
 
 /** Checkout paths → external product URLs (used by Node serve + Astro middleware). */

@@ -1,3 +1,5 @@
+export declare const ZADEYO_AION2_CHECKOUT: string;
+
 export declare const CHECKOUT_URLS: {
   readonly aion2: string;
   readonly skinChanger: string;
