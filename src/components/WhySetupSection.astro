@@ -1,5 +1,6 @@
 ---
 import { getTranslations, localeFromPathname, localizePath } from "../i18n";
+import { resolveCheckoutHref } from "../config/checkout";
 import { setupStepIcons } from "../data/sectionIcons";
 import Icon from "./icons/Icon.astro";
 import { Button } from "@/components/starwind/button";
@@ -237,7 +238,7 @@ const lastRowIndex = why.rows.length - 1;
     >
       <Button
         as="a"
-        href={localizePath(locale, t.setup.ctaPrimaryHref)}
+        href={resolveCheckoutHref(localizePath(locale, t.setup.ctaPrimaryHref))}
         variant="primary"
         size="lg"
         class="deployment-cta-primary w-full rounded-xl sm:w-auto"

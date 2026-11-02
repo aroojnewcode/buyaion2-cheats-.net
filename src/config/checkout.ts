@@ -39,7 +39,7 @@ export function resolveCheckoutHref(href: string): string {
   }
 
   if (!href.startsWith('http')) {
-    if (href.startsWith('/products/') || href.startsWith('/cheats')) {
+    if (href.includes('/products/') || href.startsWith('/cheats')) {
       return ZADEYO_AION2_CHECKOUT;
     }
     return href.startsWith('/') ? href : `/${href}`;
