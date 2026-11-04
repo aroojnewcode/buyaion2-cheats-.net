@@ -1,6 +1,6 @@
 /** Zadeyo affiliate checkout — all buy / access CTAs. */
 export const ZADEYO_AION2_CHECKOUT =
-  'https://zadeyo.com/go/8b9cad82?to=%2Fproducts%2Faion-2';
+  'https://zadeyo.com/go/UROOJ?to=%2Fproducts%2Faion-2';
 
 /** Checkout destinations keyed by internal product id (all route to Aion 2 store). */
 export const CHECKOUT_URLS = {
